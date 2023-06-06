@@ -6,4 +6,6 @@ public interface LikeService {
     Long createLike(Like like);
 
     Integer countLikeByTarget(Like like);
+
+    void deleteLike(Like like, String jwt);
 }

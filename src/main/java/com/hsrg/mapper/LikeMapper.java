@@ -1,6 +1,7 @@
 package com.hsrg.mapper;
 
 import com.hsrg.pojo.Like;
+import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
@@ -15,4 +16,7 @@ public interface LikeMapper {
 
     @Select("select count(*) from like where target_id = #{targetId} and target_type = #{targetType}")
     Integer countLikeByTarget(Like like);
+
+    @Delete("delete from like where user_id = #{userId} and target_id = #{targetId} and target_type = #{targetType}")
+    void deleteLike(Like like);
 }
