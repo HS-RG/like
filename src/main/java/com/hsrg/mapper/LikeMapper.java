@@ -19,4 +19,7 @@ public interface LikeMapper {
 
     @Delete("delete from `like` where user_id = #{userId} and target_id = #{targetId} and target_type = #{targetType}")
     void deleteLike(Like like);
+
+    @Select("select * from `like` where user_id =#{userId} and target_id=#{targetId} and target_type =#{targetType}")
+    Boolean selectByUserIdAndFileId(Long userId, Long targetId,Integer targetType);
 }

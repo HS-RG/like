@@ -41,4 +41,9 @@ public class LikeServiceImpl implements LikeService {
         like.setUserId(userId);
         likeMapper.deleteLike(like);
     }
+
+    @Override
+    public Boolean determineIsLiked(Long userId, Like like) {
+        return likeMapper.selectByUserIdAndFileId(userId,like.getTargetId(),like.getTargetType());
+    }
 }

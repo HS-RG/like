@@ -8,4 +8,6 @@ public interface LikeService {
     Integer countLikeByTarget(Like like);
 
     void deleteLike(Like like, String jwt);
+
+    Boolean determineIsLiked(Long userId, Like like);
 }

@@ -6,10 +6,7 @@ import com.hsrg.service.LikeService;
 import com.hsrg.utils.JwtUtils;
 import io.jsonwebtoken.Claims;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestHeader;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class LikeController {
@@ -41,4 +38,13 @@ public class LikeController {
         return Result.success(likeService.countLikeByTarget(like));
     }
 
+    @PostMapping("/like/determineIsLiked")
+    public Result determineIsLiked(@RequestHeader("Authorization")String jwt, @RequestBody Like like){
+        Claims claims=JwtUtils.parseJWT(jwt);
+        Long userId = (Long) claims.get("userId");
+        if(likeService.determineIsLiked(userId,like)!=null){
+            return Result.success(true);
+        }
+        return Result.success(false);
+    }
 }
