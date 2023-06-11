@@ -22,4 +22,7 @@ public interface LikeMapper {
 
     @Select("select * from `like` where user_id =#{userId} and target_id=#{targetId} and target_type =#{targetType}")
     Boolean selectByUserIdAndFileId(Long userId, Long targetId,Integer targetType);
+
+    @Select("select count(*) from `like`")
+    Integer getAllLikeNum();
 }

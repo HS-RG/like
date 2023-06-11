@@ -46,4 +46,9 @@ public class LikeServiceImpl implements LikeService {
     public Boolean determineIsLiked(Long userId, Like like) {
         return likeMapper.selectByUserIdAndFileId(userId,like.getTargetId(),like.getTargetType());
     }
+
+    @Override
+    public Integer allLikeNum() {
+        return likeMapper.getAllLikeNum();
+    }
 }

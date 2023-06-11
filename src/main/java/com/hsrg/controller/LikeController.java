@@ -47,4 +47,10 @@ public class LikeController {
         }
         return Result.success(false);
     }
+
+    @PostMapping("/like/allLikeNum")
+    public Result allLikeNum(){
+        return Result.success(likeService.allLikeNum());
+    }
+
 }

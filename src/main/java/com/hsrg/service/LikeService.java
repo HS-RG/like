@@ -10,4 +10,6 @@ public interface LikeService {
     void deleteLike(Like like, String jwt);
 
     Boolean determineIsLiked(Long userId, Like like);
+
+    Integer allLikeNum();
 }
