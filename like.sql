@@ -1,6 +1,6 @@
-create schema like;
+create schema `like`;
 
-use like;
+use `like`;
 
 
 create table `like`
